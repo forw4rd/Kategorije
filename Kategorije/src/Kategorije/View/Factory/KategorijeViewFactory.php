@@ -1,13 +1,13 @@
 <?php 
  
 
- namespace Kategorije\Factory;
+ namespace Kategorije\View\Factory;
   
- use Kategorije\Controller\KategorijeController;
+ use Kategorije\View\Helper\KategorijeView;
  use Zend\ServiceManager\FactoryInterface;
  use Zend\ServiceManager\ServiceLocatorInterface;
 
- class KategorijeFactory implements FactoryInterface
+ class KategorijeViewFactory implements FactoryInterface
  {
      /**
       * Create service
@@ -18,10 +18,10 @@
       */
      public function createService(ServiceLocatorInterface $serviceLocator)
      {
-         echo "bok1";
+         echo "bokic";
          $realServiceLocator = $serviceLocator->getServiceLocator();
          $postService        = $realServiceLocator->get('Kategorije\Service\KategorijeService');
 
-         return new KategorijeController($postService);
+         return new KategorijeView($postService);
      }
  }

@@ -11,7 +11,7 @@
  // Filename: /module/Blog/src/Blog/Service/PostService.php
  namespace Kategorije\Service;
 
- use Zend\View\Model\ViewModel;
+
  
  
  class KategorijeService 
@@ -20,9 +20,7 @@
      public function findAllKat()
      {
         
-             return new ViewModel(array(
-                    'kategorije' => $this->getkategorijeTable()->fetchAll(),
-                ));
+             return   $this->getkategorijeTable()->fetchAll();          
      }
 
     protected $_kategorijeTable;

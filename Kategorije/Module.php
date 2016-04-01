@@ -38,9 +38,14 @@ class Module
                     //$table->setServiceLocator($dbAdapter);
                     return $table;
                 },
-                 'kategorijeservis'=>'Kategorije\Service\KategorijeService',
+                'kategorijeservis'=>'Kategorije\Service\KategorijeService',
                  'kategorijeservis' => function($sm) {
                     $table = new Kategorije\Service\KategorijeService();
+                    
+                    return $table;
+                },       
+                  'kategorijeviewservis' => function($sm) {
+                    $table = new Kategorije\View\Factory\KategorijeViewFactory();
                     
                     return $table;
                 },       
@@ -53,12 +58,19 @@ class Module
         echo "aaa";
 	return array(
 		'factories' => array(
-			'KategorijeView' => function ($serviceManager) {
+			/*'KategorijeView' => function ($serviceManager) {
 				// Get the kat Service
                                 echo "bbbbaa";
-				$kateService = $serviceManager->getServiceLocator->get('kategorijeservis');
+				$kateService = $serviceManager->getServiceLocator()->get('kategorijeservis');
 				return new \Kategorije\Helper\KategorijeView($kateService);
+			},*/
+                                'KategorijeView' => function ($serviceManager) {
+				// Get the kat Service
+                                echo "bbbbaa";
+				$kateService = $serviceManager->getServiceLocator()->get('kategorijeviewservis');
+				return new \Kategorije\View\Helper\KategorijeView($kateService);
 			},
+                    
 		),
 	);
     }

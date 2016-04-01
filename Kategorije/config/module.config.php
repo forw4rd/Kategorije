@@ -97,13 +97,17 @@ return [
     ],
     'view_helpers'=>array(
         'factories'=>array(
-            'KategorijeView'=> '\Kategorije\Helper\KategorijeView',
+           'KategorijeView'=> '\Kategorije\View\Helper\KategorijeView',
+          //   'KategorijeView'=> '\Kategorije\View\Factory\KategorijeViewFactory',
         ),
     ),
     
     'service_manager' => array(
          'factories' => array(
-             'kategorijeservis' => 'Kategorije\Service\KategorijeService'
+             'kategorijeservis' => 'Kategorije\Factory\KategorijeFactory',
+             'KategorijeViewFactory'=> '\Kategorije\View\Factory\KategorijeViewFactory',
+            
+             
          )
      ),
     
