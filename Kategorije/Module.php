@@ -35,39 +35,29 @@ class Module
                 'Kategorije\Model\KategorijeTable' => function($sm) {
                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
                     $table = new Model\KategorijeTable($dbAdapter);
-                    //$table->setServiceLocator($dbAdapter);
+                    
                     return $table;
                 },
-                'kategorijeservis'=>'Kategorije\Service\KategorijeService',
-                 'kategorijeservis' => function($sm) {
-                    $table = new Kategorije\Service\KategorijeService();
-                    
-                    return $table;
-                },       
-                  'kategorijeviewservis' => function($sm) {
-                    $table = new Kategorije\View\Factory\KategorijeViewFactory();
-                    
-                    return $table;
-                },       
-                 
+                
+                 /*
+                  'Kategorije\Service\KategorijeService' => function()  {
+                  $ah= new Service\KategorijeService();
+                  return $ah;
+                },      
+                 */
             ),
         );
     }
     public function getViewHelperConfig()
     {
-        echo "aaa";
+       
 	return array(
 		'factories' => array(
-			/*'KategorijeView' => function ($serviceManager) {
-				// Get the kat Service
+		  'KategorijeView' => function ($serviceManager) {
+				
                                 echo "bbbbaa";
-				$kateService = $serviceManager->getServiceLocator()->get('kategorijeservis');
-				return new \Kategorije\Helper\KategorijeView($kateService);
-			},*/
-                                'KategorijeView' => function ($serviceManager) {
-				// Get the kat Service
-                                echo "bbbbaa";
-				$kateService = $serviceManager->getServiceLocator()->get('kategorijeviewservis');
+				$kateService = $serviceManager->getServiceLocator()->get('KategorijeViewFactory');
+                              //  $kateService = $serviceManager->getServiceLocator()->get('kategorijeservice');
 				return new \Kategorije\View\Helper\KategorijeView($kateService);
 			},
                     

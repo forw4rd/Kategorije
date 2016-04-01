@@ -97,18 +97,22 @@ return [
     ],
     'view_helpers'=>array(
         'factories'=>array(
-           'KategorijeView'=> '\Kategorije\View\Helper\KategorijeView',
-          //   'KategorijeView'=> '\Kategorije\View\Factory\KategorijeViewFactory',
+           '\Kategorije\View\Helper\KategorijeView'=> '\Kategorije\View\Factory\KategorijeViewFactory',
+          
         ),
     ),
     
     'service_manager' => array(
-         'factories' => array(
-             'kategorijeservis' => 'Kategorije\Factory\KategorijeFactory',
-             'KategorijeViewFactory'=> '\Kategorije\View\Factory\KategorijeViewFactory',
-            
+        'factories' => array(
+             'kategorijeservice'=> 'Kategorije\Factory\KategorijeFactory',
              
-         )
+             'KategorijeViewFactory'=> '\Kategorije\View\Factory\KategorijeViewFactory',
+            //'Kategorije\Service\KategorijeService' => ,
+             
+        ),
+        'invokables'=>array(
+            'katservice'=> 'Kategorije\Service\KategorijeService',
+        ),
      ),
     
     // add this section

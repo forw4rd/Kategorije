@@ -11,6 +11,7 @@
  // Filename: /module/Blog/src/Blog/Service/PostService.php
  namespace Kategorije\Service;
 
+ 
 
  
  
@@ -19,7 +20,7 @@
      
      public function findAllKat()
      {
-        
+            echo "\ni got here";
              return   $this->getkategorijeTable()->fetchAll();          
      }
 

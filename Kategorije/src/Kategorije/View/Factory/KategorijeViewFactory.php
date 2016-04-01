@@ -3,7 +3,8 @@
 
  namespace Kategorije\View\Factory;
   
- use Kategorije\View\Helper\KategorijeView;
+
+ use Kategorije\Service\KategorijeService;
  use Zend\ServiceManager\FactoryInterface;
  use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -19,9 +20,8 @@
      public function createService(ServiceLocatorInterface $serviceLocator)
      {
          echo "bokic";
-         $realServiceLocator = $serviceLocator->getServiceLocator();
-         $postService        = $realServiceLocator->get('Kategorije\Service\KategorijeService');
+         $realServiceLocator = $serviceLocator->get('kategorijeservice');
 
-         return new KategorijeView($postService);
+         return new KategorijeService($realServiceLocator);
      }
  }

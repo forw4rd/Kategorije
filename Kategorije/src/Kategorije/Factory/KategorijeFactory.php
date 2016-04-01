@@ -3,7 +3,7 @@
 
  namespace Kategorije\Factory;
   
- use Kategorije\Controller\KategorijeController;
+ use Kategorije\Service\KategorijeService;
  use Zend\ServiceManager\FactoryInterface;
  use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -19,9 +19,8 @@
      public function createService(ServiceLocatorInterface $serviceLocator)
      {
          echo "bok1";
-         $realServiceLocator = $serviceLocator->getServiceLocator();
-         $postService        = $realServiceLocator->get('Kategorije\Service\KategorijeService');
+         $realServiceLocator = $serviceLocator->get('katservice');
 
-         return new KategorijeController($postService);
+         return new KategorijeService($realServiceLocator);
      }
  }
