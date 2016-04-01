@@ -11,11 +11,11 @@
  // Filename: /module/Blog/src/Blog/Service/PostService.php
  namespace Kategorije\Service;
 
- 
+ use Zend\Mvc\Controller\AbstractActionController;
 
  
  
- class KategorijeService 
+ class KategorijeService extends AbstractActionController
  {
      
      public function findAllKat()
