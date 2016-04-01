@@ -1,0 +1,46 @@
+  <div class="col-sm-5 col-lg-5 col-md-5">
+          <div class="row">
+                <div id="menu"> 
+                    <div class="panel list-group"> 
+                        <p class="list-group-item kategorije"><?php echo "Kategorije" ?></p>
+                        <div>
+ 
+<?php
+$ri=0;
+
+ foreach($kategorije as $kat):?>
+  <?php if($ri<$kat->getRootId()){
+      
+      ?>
+         </div>
+          <?php  if( $kat->getDown1Ime()==""){ ?>
+       <li class="list-group-item"> <a href="../artikli/kategorija/<?php echo $kat->getRootId(); ?>" ><?php echo $kat->getRootIme(); ?></a>             <a href="#"  data-toggle="collapse" data-target="#<?php echo $kat->getRootIme(); ?>" data-parent="#menu"> </a></li>
+        <div id="<?php echo $kat->getRootIme(); ?>" class="sublinks collapse">
+         
+      
+   
+          <?php }else { ?>
+         <li class="list-group-item">   <a href="../artikli/kategorija/<?php echo $kat->getRootId(); ?>" ><?php echo $kat->getRootIme(); ?></a> <a href="#"  data-toggle="collapse" data-target="#<?php echo $kat->getRootIme(); ?>" data-parent="#menu"> <span class="glyphicon glyphicon-chevron-down pull-right"></span></a></li>
+        <div id="<?php echo $kat->getRootIme(); ?>" class="sublinks collapse">
+         
+        <a href="../artikli/kategorija/<?php echo $kat->getDown1Id() ?>" class="list-group-item subkat small"><?php echo $kat->getDown1Ime() ?></a>
+        <?php } ?>
+       
+  <?php $ri=$kat->getRootId();} else { ?>
+         <a href="../artikli/kategorija/<?php echo $kat->getDown1Id() ?>" class="list-group-item subkat small"><?php echo $kat->getDown1Ime() ?></a>
+  <?php } endforeach; ?>
+    
+    
+   
+         
+         
+       
+            
+           
+           </div>
+         
+         
+           </div>
+           </div>
+          </div>
+      </div> 
